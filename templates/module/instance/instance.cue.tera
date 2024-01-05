@@ -1,0 +1,18 @@
+package instance
+
+import (
+	conf "timoni.sh/{{name}}/instance/config"
+	"timoni.sh/{{name}}/templates"
+)
+
+{% raw %}
+// Instance takes the config values and outputs the Kubernetes objects.
+#Instance: {
+	config: conf.#Config
+
+	objects: {
+		deploy: templates.#Deployment & {#config: config}
+		service: templates.#Service & {#config: config}
+	}
+}
+{% endraw %}

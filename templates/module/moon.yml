@@ -1,0 +1,12 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+language: cue
+type: application
+platform: system
+
+project:
+  name: '{{name}}'
+  description: 'Timoni module for {{name}}'
+
+tags:
+  - timoni
