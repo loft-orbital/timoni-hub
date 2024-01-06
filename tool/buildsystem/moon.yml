@@ -1,0 +1,6 @@
+type: tool
+language: bash
+
+project:
+  name: buildsystem
+  description: Build system scripts

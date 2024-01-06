@@ -1,0 +1,10 @@
+fileGroups:
+  sources:
+    - '**/*.sh'
+
+tasks:
+  lint:
+    platform: system
+    command: shellcheck @files(sources)
+    inputs:
+      - '@group(sources)'
