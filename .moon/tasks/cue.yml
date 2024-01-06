@@ -1,0 +1,12 @@
+fileGroups:
+  sources:
+    - '*.cue'
+    - 'instance/*.cue'
+    - 'pkg/**/*.cue'
+    - 'templates/**/*.cue'
+
+tasks:
+  fmt:
+    command: cue fmt ./...
+    inputs:
+      - '@group(sources)'

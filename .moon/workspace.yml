@@ -14,6 +14,7 @@ $schema: 'https://moonrepo.dev/schemas/workspace.json'
 projects:
   - 'lib/*'
   - 'module/*'
+  - 'tool/*'
 
 # Configures the version control system to utilize within the workspace. A VCS
 # is required for determining touched (added, modified, etc) files, calculating file hashes,
@@ -27,6 +28,9 @@ vcs:
   # local branch against. For git, this is is typically "master" or "main",
   # and must include the remote prefix (before /).
   defaultBranch: 'main'
+
+runner:
+  inheritColorsForPipedTasks: true
 
 codeowners:
   syncOnRun: true

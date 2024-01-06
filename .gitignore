@@ -2,3 +2,10 @@
 # moon
 .moon/cache
 .moon/docker
+
+# CUE
+**/cue.mod/pkg
+**/cue.mod/gen
+
+# Distribution files
+dist.tar.gz

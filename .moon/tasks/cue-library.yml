@@ -1,0 +1,7 @@
+tasks:
+  build:
+    command: rsync -nr --out-format='%n' --exclude-from=.buildignore . /tmp | tar -czvf dist.tar.gz -T -
+    inputs:
+      - '@group(sources)'
+    outputs:
+      - dist.tar.gz

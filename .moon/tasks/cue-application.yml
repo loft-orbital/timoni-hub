@@ -1,0 +1,35 @@
+tasks:
+  gen:
+    command:
+      - '$workspaceRoot/tool/buildsystem/gen_cue.sh'
+      - '$project'
+    env:
+      K8S_VERSION: '1.28'
+    inputs:
+      - /tool/buildsystem/gen_cue.sh
+    outputs:
+      - cue.mod/gen/**/*
+
+  vendor:
+    command:
+      - '$workspaceRoot/tool/buildsystem/vendor_cue.sh'
+      - '$project'
+    deps:
+      - '^:build'
+    inputs:
+      - /tool/buildsystem/vendor_cue.sh
+    outputs:
+      - cue.mod/pkg/**/*
+
+  init:
+    command: noop
+    deps:
+      - '~:vendor'
+      - '~:gen'
+
+  vet:
+    command: timoni mod vet .
+    deps:
+      - '~:init'
+    inputs:
+      - '@group(sources)'
