@@ -1,0 +1,9 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+language: cue
+type: library
+platform: system
+
+project:
+  name: 'k8s'
+  description: 'CUE library'
