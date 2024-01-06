@@ -1,0 +1,25 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+language: cue
+type: library
+platform: system
+
+project:
+  name: 'timoni-schemas'
+  description: 'This is a shadow of timoni-schemas lib.'
+
+tasks:
+  pull:
+    command: timoni artifact pull "oci://ghcr.io/stefanprodan/timoni/schemas:$TIMONI_VERSION" --output=cue.mod/pkg
+    env:
+      TIMONI_VERSION: 0.18.0
+    outputs:
+      - cue.mod/pkg/timoni.sh/**/*
+
+  build:
+    command: tar -czvf dist.tar.gz -C cue.mod/pkg/timoni.sh .
+    deps:
+      - '~:pull'
+    options:
+      mergeArgs: 'replace'
+      mergeDeps: 'replace'
