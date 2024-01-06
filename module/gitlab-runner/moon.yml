@@ -1,0 +1,18 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+language: cue
+type: application
+platform: system
+
+project:
+  name: 'gitlab-runner'
+  description: 'Timoni module for gitlab-runner'
+
+dependsOn:
+  - utils
+  - k8s
+  - timoni-schemas
+  - buildsystem
+
+tags:
+  - timoni
