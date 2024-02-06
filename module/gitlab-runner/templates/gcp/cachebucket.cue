@@ -1,11 +1,12 @@
 package gcp
 
 import (
+	conf "timoni.sh/gitlab-runner/instance/config"
 	storagev1beta1 "github.com/GoogleCloudPlatform/k8s-config-connector/pkg/clients/generated/apis/storage/v1beta1"
 )
 
 #CacheBucket: storagev1beta1.#StorageBucket & {
-	#config: #Config
+	#config: conf.#Config
 
 	apiVersion: "storage.cnrm.cloud.google.com/v1beta1"
 	kind:       "StorageBucket"

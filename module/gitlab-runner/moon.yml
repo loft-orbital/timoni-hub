@@ -13,6 +13,7 @@ dependsOn:
   - k8s
   - cloud
   - timoni-schemas
+  - kcc-schemas
   - buildsystem
 
 tags:

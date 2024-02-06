@@ -5,6 +5,7 @@ import (
 	"timoni.sh/gitlab-runner/templates"
 	"timoni.sh/gitlab-runner/templates/gcp"
 	"loftorbital.com/utils"
+	"loftorbital.com/cloud"
 )
 
 // Instance takes the config values and outputs the Kubernetes objects.

@@ -5,15 +5,10 @@ import (
 	corev1 "k8s.io/api/core/v1"
 )
 
-#ConfigMap: corev1.#ConfigMap & {
+#ServiceAccount: corev1.#ServiceAccount & {
 	#config: conf.#Config
 
 	apiVersion: "v1"
-	kind:       "ConfigMap"
+	kind:       "ServiceAccount"
 	metadata:   #config.metadata
-
-	data: {
-		"config.toml":          #config.runner.config
-		"config.template.toml": #config.runner.template
-	}
 }

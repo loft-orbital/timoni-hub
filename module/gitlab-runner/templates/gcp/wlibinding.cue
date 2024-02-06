@@ -1,11 +1,12 @@
 package gcp
 
 import (
+	conf "timoni.sh/gitlab-runner/instance/config"
 	iamv1beta1 "github.com/GoogleCloudPlatform/k8s-config-connector/pkg/clients/generated/apis/iam/v1beta1"
 )
 
 #WorkloadIdentityBinding: iamv1beta1.#IAMPolicyMember & {
-	#config: #Config
+	#config: conf.#Config
 
 	apiVersion: "iam.cnrm.cloud.google.com/v1beta1"
 	kind:       "IAMPolicyMember"
