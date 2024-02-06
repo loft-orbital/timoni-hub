@@ -14,11 +14,11 @@ package container
 // }]
 // ```
 #Ports: this={
-    $out: [for k,v in this if k!="$out" {v}]
-    
-    [Name= !="$out"]: {
-        name: Name
-        containerPort: int & >0 & <65536
-        protocol: *"TCP" | string
-    }
+	$out: [for k, v in this if k != "$out" {v}]
+
+	[Name= !="$out"]: {
+		name:          Name
+		containerPort: int & >0 & <65536
+		protocol:      *"TCP" | string
+	}
 }

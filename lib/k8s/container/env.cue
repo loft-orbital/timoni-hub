@@ -19,16 +19,15 @@ package container
 // }]
 // ```
 #Env: this={
-    [NAME= !="$out"]: _
+	[NAME= !="$out"]: _
 
-    "$out": [for k, v in this if k!="$out" {
-        name: k
-        if "\(v)" != _|_ {
-            value: "\(v)"
-        }
-        if "\(v)" == _|_ {
-            valueFrom: v
-        }
-    }]
+	"$out": [for k, v in this if k != "$out" {
+		name: k
+		if "\(v)" != _|_ {
+			value: "\(v)"
+		}
+		if "\(v)" == _|_ {
+			valueFrom: v
+		}
+	}]
 }
-
