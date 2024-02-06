@@ -3,6 +3,7 @@ package config
 import (
 	corev1 "k8s.io/api/core/v1"
 	timoniv1 "timoni.sh/core/v1alpha1"
+	"loftorbital.com/cloud"
 )
 
 // Config defines the schema and defaults for the Instance values.
@@ -62,6 +63,8 @@ import (
 		imagePullSecrets?: [...timoniv1.#ObjectReference]
 	}
 
+	provider?: cloud.#Provider
+
 	// The resources allows setting the container resource requirements.
 	// By default, the container requests 10m CPU and 32Mi memory.
 	resources: timoniv1.#ResourceRequirements & {
@@ -99,6 +102,11 @@ import (
 	gitlab: {
 		// Url of the gitlab instance.
 		url: *"https://gitlab.com" | string
+	}
+
+	// Cache allows setting the GitLab Runner cache configuration.
+	cache?: {
+		bucket: string
 	}
 
 	// The runner allows setting the GitLab Runner configuration.

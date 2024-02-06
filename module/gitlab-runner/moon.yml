@@ -11,6 +11,7 @@ project:
 dependsOn:
   - utils
   - k8s
+  - cloud
   - timoni-schemas
   - buildsystem
 
