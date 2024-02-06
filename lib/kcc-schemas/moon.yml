@@ -1,0 +1,37 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+language: cue
+type: library
+platform: system
+
+project:
+  name: 'kcc-schemas'
+  description: 'Google Config Connector schemas.'
+
+tasks:
+  tidy:
+    command: go mod tidy
+    inputs:
+      - imports.go
+    outputs:
+      - go.mod
+      - go.sum
+
+  generate:
+    command: '$workspaceRoot/tool/buildsystem/gen_go_cue.sh'
+    deps:
+      - '~:tidy'
+    inputs:
+      - /tool/buildsystem/gen_go_cue.sh
+    outputs:
+      - cue.mod/gen/**/*
+
+  build:
+    command: tar -czvf dist.tar.gz -C cue.mod/gen/github.com/GoogleCloudPlatform/k8s-config-connector .
+    deps:
+      - '~:generate'
+    options:
+      mergeArgs: 'replace'
+      mergeDeps: 'replace'
+    outputs:
+      - dist.tar.gz
