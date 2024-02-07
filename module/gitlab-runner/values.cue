@@ -6,6 +6,4 @@
 package main
 
 // Placeholder for user-supplied values.
-values: {
-	runner: token: "supersecret"
-}
+values: {}

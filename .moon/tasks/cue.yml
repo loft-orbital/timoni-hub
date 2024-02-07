@@ -4,6 +4,7 @@ fileGroups:
     - 'instance/*.cue'
     - 'pkg/**/*.cue'
     - 'templates/**/*.cue'
+    - 'examples/**/*.cue'
 
 tasks:
   fmt:

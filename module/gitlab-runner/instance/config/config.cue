@@ -64,6 +64,8 @@ import (
 	}
 
 	provider?: cloud.#Provider
+	provider?: resourceManager?: namespace: *metadata.namespace | string // Default to same namespace.
+	provider?: serviceAccount: *metadata.name | string // Default to same name.
 
 	// The resources allows setting the container resource requirements.
 	// By default, the container requests 10m CPU and 32Mi memory.

@@ -28,8 +28,9 @@ tasks:
       - '~:gen'
 
   vet:
-    command: timoni mod vet .
+    command: '$workspaceRoot/tool/buildsystem/timoni_vet.sh'
     deps:
       - '~:init'
     inputs:
+      - '/tool/buildsystem/timoni_vet.sh'
       - '@group(sources)'
