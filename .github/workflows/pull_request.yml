@@ -1,0 +1,16 @@
+name: pull request
+
+on:
+  pull_request:
+
+jobs:
+  check:
+    uses: ./.github/workflows/check.yml
+  commits:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+        - name: Commitsar check
+          uses: aevea/commitsar@v0.20.2
