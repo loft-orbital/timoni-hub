@@ -34,3 +34,15 @@ tasks:
     inputs:
       - '/tool/buildsystem/timoni_vet.sh'
       - '@group(sources)'
+
+  release:
+    command:
+      - '$workspaceRoot/tool/buildsystem/release-module.sh'
+      - '$project'
+    local: true # do not run with `moon check` or `moon ci`
+    deps:
+      - '^:release'
+      - '~:init'
+    inputs:
+      - 'group(sources)'
+      - /tool/buildsystem/release-module.sh
