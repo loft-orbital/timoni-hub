@@ -1,0 +1,6 @@
+type: tool
+language: bash
+
+project:
+  name: devenv
+  description: Containerized developper environment
