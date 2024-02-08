@@ -1,23 +1,23 @@
 tasks:
   gen:
     command:
-      - '$workspaceRoot/tool/buildsystem/gen_cue.sh'
+      - '$workspaceRoot/tools/buildsystem/gen_cue.sh'
       - '$project'
     env:
       K8S_VERSION: '1.28'
     inputs:
-      - /tool/buildsystem/gen_cue.sh
+      - /tools/buildsystem/gen_cue.sh
     outputs:
       - cue.mod/gen/**/*
 
   vendor:
     command:
-      - '$workspaceRoot/tool/buildsystem/vendor_cue.sh'
+      - '$workspaceRoot/tools/buildsystem/vendor_cue.sh'
       - '$project'
     deps:
       - '^:build'
     inputs:
-      - /tool/buildsystem/vendor_cue.sh
+      - /tools/buildsystem/vendor_cue.sh
     outputs:
       - cue.mod/pkg/**/*
 
@@ -28,16 +28,16 @@ tasks:
       - '~:gen'
 
   vet:
-    command: '$workspaceRoot/tool/buildsystem/timoni_vet.sh'
+    command: '$workspaceRoot/tools/buildsystem/timoni_vet.sh'
     deps:
       - '~:init'
     inputs:
-      - '/tool/buildsystem/timoni_vet.sh'
+      - '/tools/buildsystem/timoni_vet.sh'
       - '@group(sources)'
 
   release:
     command:
-      - '$workspaceRoot/tool/buildsystem/release-module.sh'
+      - '$workspaceRoot/tools/buildsystem/release-module.sh'
       - '$project'
     local: true # do not run with `moon check` or `moon ci`
     deps:
@@ -45,4 +45,4 @@ tasks:
       - '~:init'
     inputs:
       - 'group(sources)'
-      - /tool/buildsystem/release-module.sh
+      - /tools/buildsystem/release-module.sh

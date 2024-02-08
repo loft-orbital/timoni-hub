@@ -18,11 +18,11 @@ tasks:
       - go.sum
 
   generate:
-    command: '$workspaceRoot/tool/buildsystem/gen_go_cue.sh'
+    command: '$workspaceRoot/tools/buildsystem/gen_go_cue.sh'
     deps:
       - '~:tidy'
     inputs:
-      - /tool/buildsystem/gen_go_cue.sh
+      - /tools/buildsystem/gen_go_cue.sh
     outputs:
       - cue.mod/gen/**/*
 

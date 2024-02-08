@@ -14,13 +14,13 @@ container := $(word 1, $(container))
 # ---
 dev-image: ## Build development image
 	@$(container) build \
-		--file=tool/devenv/Containerfile \
+		--file=tools/devenv/Containerfile \
 		--tag=$(dev_image) \
 		.
 .PHONY: dev-image
 
 dev-shell: dev-image ## Run development shell
-	-@tool/devenv/container_shell.sh $(container) $(dev_image) $(container_name) $(CURDIR)
+	-@tools/devenv/container_shell.sh $(container) $(dev_image) $(container_name) $(CURDIR)
 .PHONY: dev-shell
 
 clean: ## Clean up

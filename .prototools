@@ -10,9 +10,9 @@ gojq = "0.12.14"
 [plugins]
 moon = "source:https://raw.githubusercontent.com/moonrepo/moon/master/proto-plugin.toml"
 gojq = "source:https://raw.githubusercontent.com/stk0vrfl0w/proto-toml-plugins/main/plugins/gojq.toml"
-cue = "source:./tool/buildsystem/plugins/cue.toml"
-timoni = "source:./tool/buildsystem/plugins/timoni.toml"
-shellcheck = "source:./tool/buildsystem/plugins/shellcheck.toml"
+cue = "source:./tools/buildsystem/plugins/cue.toml"
+timoni = "source:./tools/buildsystem/plugins/timoni.toml"
+shellcheck = "source:./tools/buildsystem/plugins/shellcheck.toml"
 
 [settings]
 auto-install = true
