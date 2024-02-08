@@ -12,7 +12,7 @@ repository="oci://ghcr.io/loft-orbital/timoni/$1"
 gitroot=$(git rev-parse --show-toplevel)
 
 # Get module dependencies
-deps=$(moon project "$1" --json | jq -re '[.dependencies[].id] | join(" ")')
+deps=$(moon project "$1" --json | gojq -re '[.dependencies[].id] | join(" ")')
 echo "Module dependencies: $deps"
 
 # Default new version to 1.0.0
@@ -36,7 +36,7 @@ if output=$(timoni mod list "$repository" --with-digest=false 2>&1); then
 	fi
 	# Filter commits to only those affecting the module or its dependencies
 	for dep in $1 $deps; do
-	    droot=$(moon project "$dep" --json | jq -re '.root')
+	    droot=$(moon project "$dep" --json | gojq -re '.root')
 	    drel=${droot#"$gitroot"/}
 	    ccnv_args+=("--monorepo" "$drel")
 	done

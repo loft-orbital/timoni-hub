@@ -8,11 +8,11 @@ vendor_dir="cue.mod/pkg"
 project_id=$1
 
 # Get dependencies of that project
-deps=$(moon project "$project_id" --json | jq -r '.dependencies[].id')
+deps=$(moon project "$project_id" --json | gojq -r '.dependencies[].id')
 
 # Vendor each deps
 for dep in $deps; do
-    dep_wd=$(moon project "$dep" --json | jq -r '.root')
+    dep_wd=$(moon project "$dep" --json | gojq -r '.root')
     cue_mod_file="$dep_wd/cue.mod/module.cue"
     if [ ! -f "$cue_mod_file" ]; then
         echo "Skipping $dep as it is not a cue module"

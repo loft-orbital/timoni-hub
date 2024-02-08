@@ -1,0 +1,26 @@
+name = "cue"
+type = "cli"
+
+[platform.linux]
+bin-path = "cue"
+download-file = "cue_v{version}_linux_{arch}.tar.gz"
+
+[platform.macos]
+bin-path = "cue"
+download-file = "cue_v{version}_darwin_{arch}.tar.gz"
+
+[platform.windows]
+bin-path = "cue.exe"
+download-file = "cue_v{version}_windows_{arch}.zip"
+
+[install]
+checksum-url = "https://github.com/cue-lang/cue/releases/download/v{version}/checksums.txt"
+download-url = "https://github.com/cue-lang/cue/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/cue-lang/cue"
+

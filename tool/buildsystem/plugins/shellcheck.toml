@@ -1,0 +1,16 @@
+name = "shellcheck"
+type = "cli"
+
+[platform.linux]
+bin-path = "shellcheck"
+download-file = "shellcheck-v{version}.linux.{arch}.tar.xz"
+
+[platform.macos]
+bin-path = "shellcheck"
+download-file = "shellcheck-v{version}.darwin.{arch}.tar.xz"
+
+[install]
+download-url = "https://github.com/koalaman/shellcheck/releases/download/v{version}/{download_file}"
+
+[resolve]
+git-url = "https://github.com/koalaman/shellcheck"
