@@ -1,0 +1,64 @@
+name: release
+on:
+  push:
+    branches:
+      - main
+
+# Only allows singleton
+concurrency: releaser
+
+permissions:
+  contents: write # needed for release
+  packages: write # needed for GHCR access
+  id-token: write # needed for signing
+
+jobs:
+  check:
+    uses: ./.github/workflows/check.yml
+  release:
+    name: release
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Setup
+      - name: Setup Toolchain
+        uses: moonrepo/setup-toolchain@v0
+        with:
+          auto-install: true
+      - name: Setup Cosign
+        uses: sigstore/cosign-installer@main
+      - name: Setup conventional_commits_next_version
+        uses: baptiste0928/cargo-install@v2
+        with:
+          crate: conventional_commits_next_version
+      - name: Login to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ github.repository }}
+          tags: |
+            type=sha,format=short,prefix=sha-
+      # Release
+      - name: Release modules
+        run: moon :release
+      - name: GitHub release
+        uses: ncipollo/release-action@v1
+        if: ${{ hashFiles('module_release.md') != '' }} # Only if we released some module(s)
+        with:
+          commit: ${{ github.sha }}
+          tag: ${{ steps.meta.outputs.version }}
+          makeLatest: true
+          generateReleaseNotes: true
+          bodyFile: module_release.md
+
+
