@@ -3,17 +3,18 @@
 K8s packages collection as [timoni.sh](https://timoni.sh) modules.
 
 ## Using a Module
-
-If you're new to timoni, we warmly recommend you to visit [timoni concepts](https://timoni.sh/concepts/) first.
-It will help you understanding the basics concept of timoni.
-You will also need some basic knowledge of CUE.
-[This summary](https://timoni.sh/cue/walkthrough/) is enough to use a module.
+If you're new to Timoni, we highly recommend visiting [Timoni concepts](https://timoni.sh/concepts/) first.
+This resource will help you understand the fundamental concepts of Timoni.
+Additionally, having some basic knowledge of [CUE](https://cuelang.org/) is necessary.
+This [walktrough](https://timoni.sh/cue/walkthrough/) will get you started with using a module.
 
 ### Modules
+Modules are stored within the `modules/` directory.
+Each module includes its own usage documentation.
+Before using a module, please ensure to review its documentation thoroughly.
 
-Modules are located under `modules/` directory.
-They each come with their own usage documentation.
-Prior to use a module, please read its documentation.
+Every module includes a set of examples located in the `examples/` directory.
+These examples serve as a valuable starting point to comprehend the module configuration.
 
 | Module                                 | Package                                                                                                                      | Description          |
 | ---                                    | ---                                                                                                                          | ---                  |
