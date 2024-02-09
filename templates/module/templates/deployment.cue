@@ -2,6 +2,7 @@ package templates
 
 import (
 	conf "timoni.sh/{{name}}/instance/config"
+	"loftorbital.com/k8s/container"
 
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
@@ -30,13 +31,11 @@ import (
 						name:            #config.metadata.name
 						image:           #config.image.reference
 						imagePullPolicy: #config.image.pullPolicy
-						ports: [
-							{
-								name:          "http"
-								containerPort: 80
-								protocol:      "TCP"
-							},
-						]
+						#ports: container.#Ports & {
+							http: containerPort: 8080
+						}
+						ports: #ports.$out
+
 						readinessProbe: {
 							httpGet: {
 								path: "/"

@@ -8,5 +8,11 @@ project:
   name: '{{name}}'
   description: 'Timoni module for {{name}}'
 
+dependsOn:
+  - buildsystem
+  - timoni-schemas
+  - k8s
+  - utils
+
 tags:
   - timoni
