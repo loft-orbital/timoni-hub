@@ -20,6 +20,20 @@ These examples serve as a valuable starting point to comprehend the module confi
 | ---                                    | ---                                                                                                                          | ---                  |
 | [gitlab-runner](modules/gitlab-runner) | [ghcr.io/loft-orbital/timoni/gitlab-runner](https://github.com/loft-orbital/timoni-hub/pkgs/container/timoni%2gitlab-runner) | CI runner for GitLab |
 
+### Verifying
+
+All modules are signed with [Cosign](https://github.com/sigstore/cosign) keyless during distribution.
+You can verify the integrity of the module by using the `--certificate-identity-regexp` `^https://github.com/loft-orbital/timoni-hub.*$` and `--certificate-oidc-issuer` `https://token.actions.githubusercontent.com`.
+Here's an example with the pull command:
+
+```shell
+timoni mod pull oci://ghcr.io/loft-orbital/timoni/<module-name> -v 1.0.0 \
+  --output ./<module-name> \
+  --verify=cosign \
+  --certificate-identity-regexp="^https://github.com/loft-orbital/timoni-hub.*$` \
+  --certificate-oidc-issuer-regexp=https://token.actions.githubusercontent.com
+```
+
 ## Contributing
 
 We welcome contribution via GitHub pull requests.
