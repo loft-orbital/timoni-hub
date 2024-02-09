@@ -1,0 +1,18 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+language: cue
+type: application
+platform: system
+
+project:
+  name: 'postgresql'
+  description: 'Timoni module for postgresql'
+
+dependsOn:
+  - utils
+  - k8s
+  - timoni-schemas
+  - buildsystem
+
+tags:
+  - timoni
