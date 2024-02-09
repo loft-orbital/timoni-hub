@@ -7,7 +7,7 @@ title: 'Library'
 # REQUIRED: Description of what the template is for and other relevant information.
 description: 'Create a new CUE library'
 
-destination: 'lib/[name]'
+destination: 'libs/[name]'
 
 # Mapping of variables that will be interpolated and rendered within template files.
 # Users will be prompted to provide a value when running the generator.

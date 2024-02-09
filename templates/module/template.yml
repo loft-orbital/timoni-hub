@@ -7,7 +7,7 @@ title: 'Module'
 # REQUIRED: Description of what the template is for and other relevant information.
 description: 'Scaffolds the initial structure of a timoni module'
 
-destination: 'module/[name]'
+destination: 'modules/[name]'
 
 # Mapping of variables that will be interpolated and rendered within template files.
 # Users will be prompted to provide a value when running the generator.
