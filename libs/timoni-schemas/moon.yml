@@ -12,7 +12,7 @@ tasks:
   pull:
     command: timoni artifact pull "oci://ghcr.io/stefanprodan/timoni/schemas:$TIMONI_VERSION" --output=cue.mod/pkg
     env:
-      TIMONI_VERSION: 0.18.0
+      TIMONI_VERSION: 0.19.0
     outputs:
       - cue.mod/pkg/timoni.sh/**/*
 
