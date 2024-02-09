@@ -50,19 +50,12 @@ import (
 	pod: {
 		annotations?: timoniv1.#Annotations
 
-		affinity: *{
-			nodeAffinity: requiredDuringSchedulingIgnoredDuringExecution: nodeSelectorTerms: [{
-				matchExpressions: [{
-					key:      corev1.#LabelOSStable
-					operator: "In"
-					values: ["linux"]
-				}]
-			}]
-		} | corev1.#Affinity
+		affinity: corev1.#Affinity
 
 		imagePullSecrets?: [...timoniv1.#ObjectReference]
 	}
 
+	// Provider allows setting the cloud provider.
 	provider?: cloud.#Provider
 	provider?: resourceManager?: namespace: *metadata.namespace | string // Default to same namespace.
 	provider?: serviceAccount: *metadata.name | string // Default to same name.

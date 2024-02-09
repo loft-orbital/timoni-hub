@@ -1,7 +1,7 @@
 fileGroups:
   sources:
     - '*.cue'
-    - 'instance/*.cue'
+    - 'instance/**/*.cue'
     - 'pkg/**/*.cue'
     - 'templates/**/*.cue'
     - 'examples/**/*.cue'
