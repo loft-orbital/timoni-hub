@@ -37,12 +37,13 @@ tasks:
 
   release:
     command:
-      - '$workspaceRoot/tools/buildsystem/release-module.sh'
+      - '$workspaceRoot/tools/buildsystem/timoni_release.sh'
       - '$project'
     local: true # do not run with `moon check` or `moon ci`
     deps:
       - '^:release'
       - '~:init'
+      - '~:vet' # Make sure to test before releasing
     inputs:
       - 'group(sources)'
-      - /tools/buildsystem/release-module.sh
+      - /tools/buildsystem/timoni_release.sh

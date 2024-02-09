@@ -13,11 +13,8 @@ permissions:
   id-token: write # needed for signing
 
 jobs:
-  check:
-    uses: ./.github/workflows/check.yml
   release:
     name: release
-    needs: check
     runs-on: ubuntu-latest
     steps:
       # Checkout
@@ -60,5 +57,3 @@ jobs:
           makeLatest: true
           generateReleaseNotes: true
           bodyFile: module_release.md
-
-
