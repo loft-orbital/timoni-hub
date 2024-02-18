@@ -1,5 +1,8 @@
 # timoni-hub
 
+[![build](https://github.com/loft-orbital/timoni-hub/workflows/release/badge.svg)](https://github.com/loft-orbital/timoni-hub/actions)
+[![license](https://img.shields.io/github/license/loft-orbital/timoni-hub.svg)](https://github.com/loft-orbital/timoni-hub/blob/main/LICENSE)
+
 K8s packages collection as [timoni.sh](https://timoni.sh) modules.
 
 ## Using a Module
@@ -13,8 +16,9 @@ Modules are stored within the `modules/` directory.
 Each module includes its own usage documentation.
 Before using a module, please ensure to review its documentation thoroughly.
 
-Every module includes a set of examples located in the `examples/` directory.
-These examples serve as a valuable starting point to comprehend the module configuration.
+> [!TIP]
+> Every module includes a set of examples located in the `examples/` directory.
+> These examples serve as a valuable starting point to comprehend the module configuration.
 
 | Module                                 | Package                                                                                                                       | Description           |
 | ---                                    | ---                                                                                                                           | ---                   |
