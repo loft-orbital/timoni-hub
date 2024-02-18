@@ -1,3 +1,6 @@
+/// Crafted with love by the Loft Orbital team and contributors.
+/// Licensed under the Apache License, Version 2.0.
+
 package container
 
 // #Env is an helper to generate a list of kubernetes env vars from a map.
