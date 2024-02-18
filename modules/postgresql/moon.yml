@@ -5,14 +5,14 @@ type: application
 platform: system
 
 project:
-  name: '{{name}}'
-  description: 'Timoni module for {{name}}'
+  name: 'postgresql'
+  description: 'Timoni module for postgresql'
 
 dependsOn:
-  - buildsystem
-  - timoni-schemas
-  - k8s
   - utils
+  - k8s
+  - timoni-schemas
+  - buildsystem
 
 tags:
   - timoni
