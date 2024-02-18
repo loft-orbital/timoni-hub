@@ -16,10 +16,10 @@ Before using a module, please ensure to review its documentation thoroughly.
 Every module includes a set of examples located in the `examples/` directory.
 These examples serve as a valuable starting point to comprehend the module configuration.
 
-| Module                                 | Package                                                                                                                      | Description           |
-| ---                                    | ---                                                                                                                          | ---                   |
+| Module                                 | Package                                                                                                                       | Description           |
+| ---                                    | ---                                                                                                                           | ---                   |
 | [gitlab-runner](modules/gitlab-runner) | [ghcr.io/loft-orbital/timoni/gitlab-runner](https://github.com/loft-orbital/timoni-hub/pkgs/container/timoni%2Fgitlab-runner) | CI runner for GitLab  |
-| [postgresql](modules/postgresql)       | [ghcr.io/loft-orbital/timoni/gitlab-runner](https://github.com/loft-orbital/timoni-hub/pkgs/container/timoni%2Fpostgresql)    | Postgres SQL database |
+| [postgresql](modules/postgresql)       | [ghcr.io/loft-orbital/timoni/postgresql](https://github.com/loft-orbital/timoni-hub/pkgs/container/timoni%2Fpostgresql)       | Postgres SQL database |
 
 ### Verifying
 
